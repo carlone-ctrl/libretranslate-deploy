@@ -1,27 +1,17 @@
-FROM libretranslate/libretranslate:latest
+# Usar una imagen base de Python
+FROM python:3.9-slim
 
-# Cambiar al usuario root para instalar dependencias
-USER root
-
-# Exponer el puerto que LibreTranslate usa
-EXPOSE 5000
-
-# Instalar dependencias necesarias
-RUN apt-get update && \
-    apt-get install -y curl git python3-pip && \
-    rm -rf /var/lib/apt/lists/*
-
-# Copiar el código fuente al contenedor
-COPY . /app
-
-# Establecer el directorio de trabajo
+# Establecer el directorio de trabajo en el contenedor
 WORKDIR /app
 
+# Copiar el archivo de requisitos y otros archivos necesarios al contenedor
+COPY requirements.txt /app/
+
 # Instalar las dependencias de Python
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Cambiar al usuario libretranslate para ejecutar la aplicación
-USER libretranslate
+# Copiar el resto de tu aplicación al contenedor
+COPY . /app
 
-# Comando para ejecutar la aplicación
-CMD ["python3", "app.py"]
+# Definir el comando para ejecutar tu aplicación (ajústalo según tu aplicación)
+CMD ["python", "app.py"]
