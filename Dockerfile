@@ -1,8 +1,8 @@
 # Usa la imagen oficial de LibreTranslate como base
 FROM libretranslate/libretranslate:latest
 
-# Exponer el puerto
+# Exponer el puerto que LibreTranslate usa
 EXPOSE 5000
 
-# Comando para ejecutar el servicio
-CMD ["./start.sh"]
+# El comando predeterminado que la imagen usa para iniciar LibreTranslate
+CMD ["libretranslate"]
