@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copiar el archivo de requisitos y otros archivos necesarios al contenedor
-COPY libretranslate-deploy/requirements.txt /app/
+COPY requirements.txt /app/
 
 # Instalar las dependencias de Python
 RUN pip3 install --no-cache-dir -r requirements.txt
