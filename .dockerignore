@@ -1,0 +1,32 @@
+# Archivos y carpetas de control de versiones
+.git/
+.gitignore
+
+# Archivos de configuración del IDE
+.idea/
+.vscode/
+
+# Archivos temporales y de logs
+*.log
+*.tmp
+*.pid
+
+# Directorios de dependencias y archivos generados
+node_modules/
+venv/
+.venv/
+build/
+dist/
+
+# Archivos de documentación
+*.md
+*.pdf
+docs/
+tests/
+
+# Archivos de sistema específicos
+Thumbs.db
+.DS_Store
+
+# Archivos de entorno y configuraciones locales
+.env
